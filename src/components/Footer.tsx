@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Brands</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-xellence-teal transition-colors">Reflect</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-xellence-teal transition-colors">Goldpay</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-xellence-teal transition-colors">BlockVault</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-xellence-teal transition-colors">Blokrite</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-xellence-teal transition-colors">TheBikersOrg</a></li>
+              <li><a href="https://reflect.xellence.xyz" className="text-gray-300 hover:text-xellence-teal transition-colors">Reflect</a></li>
+              <li><a href="https://preview--goldflow-app.lovable.app" className="text-gray-300 hover:text-xellence-teal transition-colors">Goldpay</a></li>
+              <li><a href="https://preview--vaultify-cloud.lovable.app/" className="text-gray-300 hover:text-xellence-teal transition-colors">BlockVault</a></li>
+              <li><a href="https://blokrite.site" className="text-gray-300 hover:text-xellence-teal transition-colors">Blokrite</a></li>
+              <li><a href="https://preview--biker-camp-connect.lovable.app/" className="text-gray-300 hover:text-xellence-teal transition-colors">TheBikersOrg</a></li>
             </ul>
           </div>
           
@@ -41,8 +41,8 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold">Contact</h4>
             <ul className="space-y-2">
               <li className="text-gray-300">Ashes Lifestyle</li>
-              <li className="text-gray-300">info@xellence.com</li>
-              <li className="text-gray-300">+1 (555) 123-4567</li>
+              <li className="text-gray-300">info@xellence.xyz</li>
+              <li className="text-gray-300">+91 956 663 2725</li>
             </ul>
           </div>
         </div>
