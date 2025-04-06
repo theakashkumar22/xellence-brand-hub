@@ -84,7 +84,7 @@ const BrandsSection: React.FC = () => {
       description: "A decentralized storage system allowing users to rent storage space and earn passive income through blockchain technology.",
       icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"></path><path d="M9 3v18"></path></svg>,
       color: "bg-blue-500",
-      url: "https://preview--safefile-vault.lovable.app",
+      url: "https://preview--vaultify-cloud.lovable.app/",
     },
     {
       title: "Blokrite",
