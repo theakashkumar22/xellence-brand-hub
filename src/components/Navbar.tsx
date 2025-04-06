@@ -12,6 +12,17 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    // If we're on the home page, scroll to the section
+    if (window.location.pathname === '/') {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        if (isMenuOpen) setIsMenuOpen(false);
+      }
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
       <div className="container mx-auto px-4 md:px-6 py-4">
@@ -22,14 +33,19 @@ const Navbar: React.FC = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink href="#brands">Brands</NavLink>
-            <NavLink href="#about">About Us</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
+            <Link to="/" className="text-xellence-navy hover:text-xellence-teal transition-colors font-medium">
+              Home
+            </Link>
+            <Link to="/brands" className="text-xellence-navy hover:text-xellence-teal transition-colors font-medium">
+              Brands
+            </Link>
+            <NavLink href="#about" onClick={() => scrollToSection('about')}>About Us</NavLink>
+            <NavLink href="#contact" onClick={() => scrollToSection('contact')}>Contact</NavLink>
             <Button 
               className="bg-xellence-navy hover:bg-xellence-lightnavy text-white"
-              asChild
+              onClick={() => scrollToSection('contact')}
             >
-              <a href="#contact">Get in Touch</a>
+              Get in Touch
             </Button>
           </nav>
           
@@ -48,14 +64,28 @@ const Navbar: React.FC = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 animate-fade-in">
           <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <MobileNavLink href="#brands" onClick={toggleMenu}>Brands</MobileNavLink>
-            <MobileNavLink href="#about" onClick={toggleMenu}>About Us</MobileNavLink>
-            <MobileNavLink href="#contact" onClick={toggleMenu}>Contact</MobileNavLink>
+            <Link to="/" className="text-xellence-navy hover:text-xellence-teal py-2 font-medium" onClick={() => setIsMenuOpen(false)}>
+              Home
+            </Link>
+            <Link to="/brands" className="text-xellence-navy hover:text-xellence-teal py-2 font-medium" onClick={() => setIsMenuOpen(false)}>
+              Brands
+            </Link>
+            <MobileNavLink href="#about" onClick={() => {
+              scrollToSection('about');
+              setIsMenuOpen(false);
+            }}>About Us</MobileNavLink>
+            <MobileNavLink href="#contact" onClick={() => {
+              scrollToSection('contact');
+              setIsMenuOpen(false);
+            }}>Contact</MobileNavLink>
             <Button 
               className="bg-xellence-navy hover:bg-xellence-lightnavy text-white w-full"
-              asChild
+              onClick={() => {
+                scrollToSection('contact');
+                setIsMenuOpen(false);
+              }}
             >
-              <a href="#contact" onClick={toggleMenu}>Get in Touch</a>
+              Get in Touch
             </Button>
           </nav>
         </div>
@@ -68,15 +98,17 @@ type NavLinkProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 };
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => (
+const NavLink: React.FC<NavLinkProps> = ({ href, children, className, onClick }) => (
   <a 
     href={href}
     className={cn(
       "text-xellence-navy hover:text-xellence-teal transition-colors font-medium",
       className
     )}
+    onClick={onClick}
   >
     {children}
   </a>
